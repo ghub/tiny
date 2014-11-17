@@ -1,0 +1,7 @@
+include_rules
+
+LDFLAGS += -nostartfiles
+LDFLAGS += -nostdlib
+
+: foreach *.asm |> !as |>
+: *.o |> !ld |>

@@ -1,0 +1,17 @@
+.gitignore
+
+AS = nasm
+ASFLAGS += -f elf64
+ASFLAGS += -Wall
+ASFLAGS += -l
+
+CC = gcc
+CFLAGS += -Wall
+
+LD = gcc
+LDFLAGS += -s
+
+!as = |> ^o AS %f^ $(AS) $(ASFLAGS) %B.lst %f |> %B.o | %B.lst
+!bn = |> ^o BIN %f^ $(AS) -l %B.lst -o %o %f && chmod +x %o |> a.out | %B.lst
+!cc = |> ^o CC %f^ $(CC) $(CFLAGS) -c %f -o %o |> %B.o
+!ld = |> ^ LINK %o^ $(LD) $(LDFLAGS) %f |> a.out

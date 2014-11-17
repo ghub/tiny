@@ -1,0 +1,6 @@
+include_rules
+
+CFLAGS += -O3
+
+: foreach *.c |> !cc |>
+: *.o |> !ld |>

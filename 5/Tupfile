@@ -1,0 +1,6 @@
+include_rules
+
+LD = ld
+
+: foreach *.asm |> !as |>
+: *.o |> !ld |>
